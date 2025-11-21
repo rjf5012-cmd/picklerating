@@ -2,9 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Pickleball Rating Estimator | Simple Skill Calculator</title>
+  <title>Pickleball Rating Calculator | PickleballRatingCalculator.com</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Estimate your pickleball rating based on your skills: serve, return, dinking, volleys, movement, and strategy. Quick, simple pickleball rating calculator." />
+  <meta name="description" content="Use this free pickleball rating calculator to estimate your 2.0–5.0 pickleball rating based on your skills: serve, dinking, volleys, movement, strategy, and consistency." />
+
+  <!-- Canonical for SEO -->
+  <link rel="canonical" href="https://www.pickleballratingcalculator.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Pickleball Rating Calculator" />
+  <meta property="og:description" content="Estimate your pickleball rating (2.0–5.0) in seconds using this free skill-based calculator." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.pickleballratingcalculator.com/" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Pickleball Rating Calculator" />
+  <meta name="twitter:description" content="Estimate your pickleball rating (2.0–5.0) from your real on-court skills." />
 
   <style>
     :root {
@@ -30,10 +44,87 @@
       background: radial-gradient(circle at top, #1f2937 0, #020617 55%, #000 100%);
       color: var(--text);
       min-height: 100vh;
+      padding: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Top nav */
+    .site-shell {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 16px 40px;
+    }
+
+    @media (min-width: 900px) {
+      .site-shell {
+        padding: 20px 20px 56px;
+      }
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      gap: 10px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 24px 16px;
+      background: radial-gradient(circle at 30% 0%, #22c55e 0, #16a34a 40%, #064e3b 100%);
+      box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.9), 0 10px 25px rgba(34, 197, 94, 0.4);
+      font-size: 16px;
+    }
+
+    .nav-title {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .nav-title-main {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-title-sub {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 14px;
+      font-size: 13px;
+      color: var(--muted);
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      padding: 4px 0;
+      border-bottom: 1px solid transparent;
+    }
+
+    .nav-links a:hover {
+      color: #e5e7eb;
+      border-bottom-color: rgba(148, 163, 184, 0.7);
     }
 
     .page {
@@ -421,226 +512,400 @@
       font-size: 10px;
     }
 
-    footer {
+    /* Visual rating scale graphic (below main card) */
+    .section {
+      margin-top: 28px;
+      padding: 18px 18px 16px;
+      border-radius: 20px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+    }
+
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .section p {
+      margin: 0 0 10px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .rating-scale {
       margin-top: 14px;
+    }
+
+    .rating-scale-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .rating-scale-bar {
+      border-radius: 999px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      border: 1px solid rgba(31, 41, 55, 0.9);
+    }
+
+    .rating-band-segment {
+      padding: 8px 6px;
+      text-align: center;
+      font-size: 11px;
+      line-height: 1.25;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    }
+
+    .rating-band-segment span {
+      display: block;
+    }
+
+    .rating-band-segment small {
+      display: block;
+      font-size: 10px;
+    }
+
+    .band-beginner {
+      background: linear-gradient(135deg, #111827, #1f2937);
+      color: #e5e7eb;
+    }
+
+    .band-developing {
+      background: linear-gradient(135deg, #1f2937, #0f766e);
+      color: #ecfeff;
+    }
+
+    .band-rec {
+      background: linear-gradient(135deg, #0f766e, #16a34a);
+      color: #ecfdf5;
+    }
+
+    .band-club {
+      background: linear-gradient(135deg, #16a34a, #15803d);
+      color: #ecfdf5;
+    }
+
+    .band-advanced {
+      background: linear-gradient(135deg, #15803d, #064e3b);
+      color: #bbf7d0;
+    }
+
+    .disclaimer {
+      font-size: 11px;
+      color: #6b7280;
+      margin-top: 10px;
+    }
+
+    footer.site-footer {
+      margin-top: 24px;
       font-size: 11px;
       color: #6b7280;
       text-align: center;
     }
 
-    footer a {
+    footer.site-footer a {
       color: #9ca3af;
       text-decoration: none;
       border-bottom: 1px dotted rgba(148, 163, 184, 0.6);
     }
 
-    footer a:hover {
+    footer.site-footer a:hover {
       color: #e5e7eb;
       border-bottom-style: solid;
     }
   </style>
 </head>
 <body>
-  <main class="page">
-    <section class="card">
-      <div class="card-inner">
-        <!-- Left: Inputs -->
-        <div>
-          <header>
-            <div class="eyebrow">
-              <span class="eyebrow-dot"></span>
-              <span>Pickleball Rating Estimator</span>
+  <div class="site-shell">
+    <!-- Top Nav -->
+    <nav class="nav">
+      <div class="nav-left">
+        <div class="nav-logo" aria-hidden="true">🥒</div>
+        <div class="nav-title">
+          <div class="nav-title-main">Pickleball Rating Calculator</div>
+          <div class="nav-title-sub">PickleballRatingCalculator.com</div>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#top">Calculator</a>
+        <a href="#rating-levels">Rating Levels</a>
+        <a href="/about.html">About</a>
+        <a href="/faq.html">FAQ</a>
+      </div>
+    </nav>
+
+    <main id="top" class="page">
+      <!-- Main Calculator Card -->
+      <section class="card">
+        <div class="card-inner">
+          <!-- Left: Inputs -->
+          <div>
+            <header>
+              <div class="eyebrow">
+                <span class="eyebrow-dot"></span>
+                <span>Pickleball Rating Estimator</span>
+              </div>
+              <h1>What’s my pickleball rating?</h1>
+              <p class="subtitle">
+                Slide each bar to match your current skill level. This tool will estimate your
+                <strong>2.0–5.0 style pickleball rating</strong> based on common recreational and club skill levels.
+              </p>
+            </header>
+
+            <form class="form" id="rating-form">
+              <!-- Serve -->
+              <div class="field">
+                <div class="field-header">
+                  <div class="field-label">Serve &amp; return consistency</div>
+                  <div class="field-value"><span id="serve-value">5</span>/10</div>
+                </div>
+                <div class="field-help">
+                  How often do you get serves and returns deep and in play?
+                </div>
+                <input type="range" id="serve" min="1" max="10" value="5" />
+                <div class="scale-hints">
+                  <span>Rarely in</span>
+                  <span>Rock solid</span>
+                </div>
+              </div>
+
+              <!-- Dinking -->
+              <div class="field">
+                <div class="field-header">
+                  <div class="field-label">Dinking &amp; soft game</div>
+                  <div class="field-value"><span id="dink-value">5</span>/10</div>
+                </div>
+                <div class="field-help">
+                  Comfort at the kitchen line, control on soft shots, ability to sustain dink rallies.
+                </div>
+                <input type="range" id="dink" min="1" max="10" value="5" />
+                <div class="scale-hints">
+                  <span>Mostly hard shots</span>
+                  <span>Calm, controlled</span>
+                </div>
+              </div>
+
+              <!-- Volleys -->
+              <div class="field">
+                <div class="field-header">
+                  <div class="field-label">Volleys &amp; hands speed</div>
+                  <div class="field-value"><span id="volley-value">5</span>/10</div>
+                </div>
+                <div class="field-help">
+                  Winning hands battles, blocking hard drives, reacting quickly at the net.
+                </div>
+                <input type="range" id="volley" min="1" max="10" value="5" />
+                <div class="scale-hints">
+                  <span>Often late</span>
+                  <span>Very quick</span>
+                </div>
+              </div>
+
+              <!-- Movement -->
+              <div class="field">
+                <div class="field-header">
+                  <div class="field-label">Movement &amp; court coverage</div>
+                  <div class="field-value"><span id="movement-value">5</span>/10</div>
+                </div>
+                <div class="field-help">
+                  Footwork, balance, and ability to get to balls wide, short, and deep.
+                </div>
+                <input type="range" id="movement" min="1" max="10" value="5" />
+                <div class="scale-hints">
+                  <span>Limited</span>
+                  <span>Excellent</span>
+                </div>
+              </div>
+
+              <!-- Strategy -->
+              <div class="field">
+                <div class="field-header">
+                  <div class="field-label">Strategy &amp; shot selection</div>
+                  <div class="field-value"><span id="strategy-value">5</span>/10</div>
+                </div>
+                <div class="field-help">
+                  Using drops, thirds, resets, and smart targets instead of just “hit it back”.
+                </div>
+                <input type="range" id="strategy" min="1" max="10" value="5" />
+                <div class="scale-hints">
+                  <span>Mostly reactive</span>
+                  <span>Very intentional</span>
+                </div>
+              </div>
+
+              <!-- Consistency -->
+              <div class="field">
+                <div class="field-header">
+                  <div class="field-label">Overall consistency</div>
+                  <div class="field-value"><span id="consistency-value">5</span>/10</div>
+                </div>
+                <div class="field-help">
+                  How often you can play at your “best level” for a full game to 11.
+                </div>
+                <input type="range" id="consistency" min="1" max="10" value="5" />
+                <div class="scale-hints">
+                  <span>Up &amp; down</span>
+                  <span>Very steady</span>
+                </div>
+              </div>
+
+              <div class="tag-row">
+                <span class="pill">Doubles &amp; rec play focused</span>
+                <span class="pill">Unofficial rating estimate</span>
+              </div>
+
+              <div class="btn-row">
+                <button type="submit" class="btn-primary">
+                  <span class="icon">🥒</span>
+                  <span>Estimate my rating</span>
+                </button>
+                <span class="inline-note">
+                  Adjust sliders and tap the button anytime to refresh your estimate.
+                </span>
+              </div>
+            </form>
+          </div>
+
+          <!-- Right: Result -->
+          <aside class="result-card" aria-live="polite">
+            <div class="glow-orb" aria-hidden="true"></div>
+
+            <div class="result-header">
+              <div class="result-title">Estimated skill level</div>
+              <div class="result-pill" id="competitive-tag">
+                Rec club level
+              </div>
             </div>
-            <h1>What’s my pickleball rating?</h1>
-            <p class="subtitle">
-              Slide each bar to match your current skill level. This tool will estimate your <strong>2.0–5.0 style rating</strong>
-              based on common rec and club skill levels.
+
+            <div class="rating-row">
+              <div class="rating-value" id="rating-display">3.5</div>
+              <div>
+                <div class="rating-unit">approximate rating</div>
+                <div class="rating-band" id="rating-band-label">Solid 3.5 player</div>
+              </div>
+            </div>
+
+            <p class="descriptor" id="rating-description">
+              You likely compete well in most rec games, can hold dinks, and are starting to use
+              <strong>third-shot drops and resets</strong> instead of only driving.
             </p>
-          </header>
 
-          <form class="form" id="rating-form">
-            <!-- Serve -->
-            <div class="field">
-              <div class="field-header">
-                <div class="field-label">Serve &amp; return consistency</div>
-                <div class="field-value"><span id="serve-value">5</span>/10</div>
-              </div>
-              <div class="field-help">
-                How often do you get serves and returns deep and in play?
-              </div>
-              <input type="range" id="serve" min="1" max="10" value="5" />
-              <div class="scale-hints">
-                <span>Rarely in</span>
-                <span>Rock solid</span>
+            <div class="bullets">
+              <div class="bullets-title">Quick snapshot</div>
+              <ul id="rating-bullets">
+                <li>Comfortable in rec doubles against similar skill.</li>
+                <li>Can sustain medium-length rallies and dink exchanges.</li>
+                <li>Some awareness of strategy: court positioning, targeting feet, etc.</li>
+              </ul>
+            </div>
+
+            <div class="scale-card">
+              <div class="scale-title">How the scale roughly maps</div>
+              <div class="scale-row">
+                <div class="scale-chip">
+                  <span>2.0–2.5</span>
+                  <small>New to the game</small>
+                </div>
+                <div class="scale-chip">
+                  <span>3.0</span>
+                  <small>Developing consistency</small>
+                </div>
+                <div class="scale-chip">
+                  <span>3.5</span>
+                  <small>Strong rec level</small>
+                </div>
+                <div class="scale-chip">
+                  <span>4.0</span>
+                  <small>Competitive club</small>
+                </div>
+                <div class="scale-chip">
+                  <span>4.5+</span>
+                  <small>High level / tourneys</small>
+                </div>
               </div>
             </div>
 
-            <!-- Dinking -->
-            <div class="field">
-              <div class="field-header">
-                <div class="field-label">Dinking &amp; soft game</div>
-                <div class="field-value"><span id="dink-value">5</span>/10</div>
-              </div>
-              <div class="field-help">
-                Comfort at the kitchen line, control on soft shots, ability to sustain dink rallies.
-              </div>
-              <input type="range" id="dink" min="1" max="10" value="5" />
-              <div class="scale-hints">
-                <span>Mostly hard shots</span>
-                <span>Calm, controlled</span>
-              </div>
-            </div>
+            <footer>
+              This is an <strong>unofficial estimator</strong>. For an official or verified rating, check
+              with leagues, clubs, or rating providers.
+            </footer>
+          </aside>
+        </div>
+      </section>
 
-            <!-- Volleys -->
-            <div class="field">
-              <div class="field-header">
-                <div class="field-label">Volleys &amp; hands speed</div>
-                <div class="field-value"><span id="volley-value">5</span>/10</div>
-              </div>
-              <div class="field-help">
-                Winning hands battles, blocking hard drives, reacting quickly at the net.
-              </div>
-              <input type="range" id="volley" min="1" max="10" value="5" />
-              <div class="scale-hints">
-                <span>Often late</span>
-                <span>Very quick</span>
-              </div>
-            </div>
+      <!-- Visual Rating Scale + SEO section -->
+      <section id="rating-levels" class="section">
+        <h2>Pickleball rating levels explained (2.0–5.0)</h2>
+        <p>
+          Most pickleball players use a scale from <strong>2.0 to 5.0+</strong> to describe skill level. This
+          pickleball rating calculator gives you a quick estimate based on how you actually play: serve, dinks,
+          volleys, movement, strategy, and consistency.
+        </p>
 
-            <!-- Movement -->
-            <div class="field">
-              <div class="field-header">
-                <div class="field-label">Movement &amp; court coverage</div>
-                <div class="field-value"><span id="movement-value">5</span>/10</div>
-              </div>
-              <div class="field-help">
-                Footwork, balance, and ability to get to balls wide, short, and deep.
-              </div>
-              <input type="range" id="movement" min="1" max="10" value="5" />
-              <div class="scale-hints">
-                <span>Limited</span>
-                <span>Excellent</span>
-              </div>
+        <div class="rating-scale" aria-label="Visual pickleball rating scale from 2.0 to 5.0">
+          <div class="rating-scale-labels">
+            <span>New player</span>
+            <span>Recreational</span>
+            <span>Competitive</span>
+          </div>
+          <div class="rating-scale-bar">
+            <div class="rating-band-segment band-beginner">
+              <span>2.0–2.5</span>
+              <small>Beginner</small>
             </div>
-
-            <!-- Strategy -->
-            <div class="field">
-              <div class="field-header">
-                <div class="field-label">Strategy &amp; shot selection</div>
-                <div class="field-value"><span id="strategy-value">5</span>/10</div>
-              </div>
-              <div class="field-help">
-                Using drops, thirds, resets, and smart targets instead of just “hit it back”.
-              </div>
-              <input type="range" id="strategy" min="1" max="10" value="5" />
-              <div class="scale-hints">
-                <span>Mostly reactive</span>
-                <span>Very intentional</span>
-              </div>
+            <div class="rating-band-segment band-developing">
+              <span>2.5–3.0</span>
+              <small>Developing</small>
             </div>
-
-            <!-- Consistency -->
-            <div class="field">
-              <div class="field-header">
-                <div class="field-label">Overall consistency</div>
-                <div class="field-value"><span id="consistency-value">5</span>/10</div>
-              </div>
-              <div class="field-help">
-                How often you can play at your “best level” for a full game to 11.
-              </div>
-              <input type="range" id="consistency" min="1" max="10" value="5" />
-              <div class="scale-hints">
-                <span>Up &amp; down</span>
-                <span>Very steady</span>
-              </div>
+            <div class="rating-band-segment band-rec">
+              <span>3.0–3.5</span>
+              <small>Strong rec</small>
             </div>
-
-            <div class="tag-row">
-              <span class="pill">Doubles &amp; rec play focused</span>
-              <span class="pill">Unofficial estimate only</span>
+            <div class="rating-band-segment band-club">
+              <span>3.5–4.0</span>
+              <small>Club level</small>
             </div>
-
-            <div class="btn-row">
-              <button type="submit" class="btn-primary">
-                <span class="icon">🥒</span>
-                <span>Estimate my rating</span>
-              </button>
-              <span class="inline-note">
-                Adjust sliders and tap the button anytime to refresh your estimate.
-              </span>
+            <div class="rating-band-segment band-advanced">
+              <span>4.0–5.0+</span>
+              <small>Advanced</small>
             </div>
-          </form>
+          </div>
         </div>
 
-        <!-- Right: Result -->
-        <aside class="result-card" aria-live="polite">
-          <div class="glow-orb" aria-hidden="true"></div>
+        <p>
+          As a rough guide:
+        </p>
+        <ul style="margin: 6px 0 0 16px; font-size: 13px; color: var(--muted);">
+          <li><strong>2.0–2.5</strong>: Just learning rules, scoring, and basic shots.</li>
+          <li><strong>3.0</strong>: Can rally, understands where to stand, and plays regular rec games.</li>
+          <li><strong>3.5</strong>: Strong recreational player with some soft game and strategy.</li>
+          <li><strong>4.0</strong>: Competitive club player, mixing drives, drops, resets, and dinks.</li>
+          <li><strong>4.5+</strong>: High-level or tournament-level player with very strong consistency.</li>
+        </ul>
 
-          <div class="result-header">
-            <div class="result-title">Estimated skill level</div>
-            <div class="result-pill" id="competitive-tag">
-              Rec club level
-            </div>
-          </div>
+        <p class="disclaimer">
+          This tool is designed for <strong>self-assessment only</strong>. Your official rating may differ based on
+          league rules, tournament results, or verified rating systems.
+        </p>
+      </section>
 
-          <div class="rating-row">
-            <div class="rating-value" id="rating-display">3.5</div>
-            <div>
-              <div class="rating-unit">approximate rating</div>
-              <div class="rating-band" id="rating-band-label">Solid 3.5 player</div>
-            </div>
-          </div>
-
-          <p class="descriptor" id="rating-description">
-            You likely compete well in most rec games, can hold dinks, and are starting to use
-            <strong>third-shot drops and resets</strong> instead of only driving.
-          </p>
-
-          <div class="bullets">
-            <div class="bullets-title">Quick snapshot</div>
-            <ul id="rating-bullets">
-              <li>Comfortable in rec doubles against similar skill.</li>
-              <li>Can sustain medium-length rallies and dink exchanges.</li>
-              <li>Some awareness of strategy: court positioning, targeting feet, etc.</li>
-            </ul>
-          </div>
-
-          <div class="scale-card">
-            <div class="scale-title">How the scale roughly maps</div>
-            <div class="scale-row">
-              <div class="scale-chip">
-                <span>2.0–2.5</span>
-                <small>New to the game</small>
-              </div>
-              <div class="scale-chip">
-                <span>3.0</span>
-                <small>Developing consistency</small>
-              </div>
-              <div class="scale-chip">
-                <span>3.5</span>
-                <small>Strong rec level</small>
-              </div>
-              <div class="scale-chip">
-                <span>4.0</span>
-                <small>Competitive club</small>
-              </div>
-              <div class="scale-chip">
-                <span>4.5+</span>
-                <small>High level / tourneys</small>
-              </div>
-            </div>
-          </div>
-
-          <footer>
-            This is an <strong>unofficial estimator</strong>. For an official rating, check
-            with leagues, clubs, or verified rating providers.
-          </footer>
-        </aside>
-      </div>
-    </section>
-  </main>
+      <footer class="site-footer">
+        &copy; <span id="year"></span> PickleballRatingCalculator.com &middot;
+        <a href="/about.html">About</a> &middot;
+        <a href="/faq.html">FAQ</a>
+      </footer>
+    </main>
+  </div>
 
   <script>
+    // Year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
     // Helper to connect slider to label
     function bindSlider(idBase) {
       const slider = document.getElementById(idBase);
@@ -670,8 +935,7 @@
       const consistency = Number(document.getElementById("consistency").value || 0);
 
       const scores = [serve, dink, volley, movement, strategy, consistency];
-      const avg =
-        scores.reduce((sum, v) => sum + v, 0) / scores.length || 0;
+      const avg = scores.reduce((sum, v) => sum + v, 0) / scores.length || 0;
 
       // Map avg 1–10 roughly to 2.0–5.0 scale
       let rating = 1.5 + avg * 0.35; // 1 -> ~1.85, 10 -> ~5.0
@@ -681,14 +945,12 @@
       const rounded = Math.round(rating * 2) / 2;
       ratingDisplay.textContent = rounded.toFixed(1);
 
-      let band = "";
       let label = "";
       let description = "";
       let bullets = [];
       let tag = "";
 
       if (rounded < 2.5) {
-        band = "2.0–2.5: Beginner";
         label = "Learning the basics";
         tag = "New to the game";
         description =
@@ -699,7 +961,6 @@
           "Great stage to focus on fun and fundamentals."
         ];
       } else if (rounded < 3.0) {
-        band = "2.5–3.0: Improving beginner";
         label = "Developing consistency";
         tag = "Early rec level";
         description =
@@ -710,7 +971,6 @@
           "Unforced errors still end a lot of points."
         ];
       } else if (rounded < 3.5) {
-        band = "3.0–3.25: Lower-intermediate";
         label = "Developing rec player";
         tag = "Rec court regular";
         description =
@@ -721,7 +981,6 @@
           "Starting to experiment with drops and lobs."
         ];
       } else if (rounded < 4.0) {
-        band = "3.5: Intermediate";
         label = "Solid 3.5 player";
         tag = "Strong rec level";
         description =
@@ -732,7 +991,6 @@
           "Understands stacking or basic doubles strategy."
         ];
       } else if (rounded < 4.5) {
-        band = "4.0: Advanced-intermediate";
         label = "Competitive club player";
         tag = "High rec / club";
         description =
@@ -743,7 +1001,6 @@
           "Reads opponents’ tendencies and adjusts tactics."
         ];
       } else {
-        band = "4.5+: Advanced";
         label = "High-level competitor";
         tag = "Tournament ready";
         description =
