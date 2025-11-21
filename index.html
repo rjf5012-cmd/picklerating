@@ -13,7 +13,1054 @@
   <!-- Canonical for SEO -->
   <link rel="canonical" href="https://www.pickleballratingcalculator.com/" />
 
+  <!-- Open Graph --><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pickleball Rating Calculator | PickleballRatingCalculator.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Use this free pickleball rating calculator to estimate your 2.0–5.0 pickleball rating based on your skills: serve, dinking, volleys, movement, strategy, and consistency." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="alternate icon" href="/favicon.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+
+  <!-- Google AdSense (verification only, no ad units yet) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8509398148166447"
+     crossorigin="anonymous"></script>
+
+  <!-- Canonical for SEO -->
+  <link rel="canonical" href="https://www.pickleballratingcalculator.com/" />
+
   <!-- Open Graph -->
+  <meta property="og:title" content="Pickleball Rating Calculator" />
+  <meta property="og:description" content="Estimate your pickleball rating (2.0–5.0) in seconds using this free skill-based calculator." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.pickleballratingcalculator.com/" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Pickleball Rating Calculator" />
+  <meta name="twitter:description" content="Estimate your pickleball rating (2.0–5.0) from your real on-court skills." />
+
+  <style>
+    :root {
+      --bg: #0b1724;
+      --card: #101c2b;
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.18);
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --border: #1f2933;
+      --danger: #f97373;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
+      --radius-lg: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 55%, #000 100%);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Top nav */
+    .site-shell {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 16px 40px;
+    }
+
+    @media (min-width: 900px) {
+      .site-shell {
+        padding: 20px 20px 56px;
+      }
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      gap: 10px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 30% 0%, #22c55e 0, #16a34a 40%, #064e3b 100%);
+      box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.9), 0 10px 25px rgba(34, 197, 94, 0.4);
+      font-size: 16px;
+    }
+
+    .nav-title {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .nav-title-main {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-title-sub {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 14px;
+      font-size: 13px;
+      color: var(--muted);
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      padding: 4px 0;
+      border-bottom: 1px solid transparent;
+    }
+
+    .nav-links a:hover {
+      color: #e5e7eb;
+      border-bottom-color: rgba(148, 163, 184, 0.7);
+    }
+
+    .page {
+      width: 100%;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, #1f2937 0, #020617 55%);
+      border-radius: 24px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: var(--shadow-soft);
+      padding: 24px 20px;
+      backdrop-filter: blur(20px);
+    }
+
+    @media (min-width: 900px) {
+      .card {
+        padding: 32px 32px 28px;
+      }
+    }
+
+    .card-inner {
+      display: grid;
+      gap: 32px;
+    }
+
+    @media (min-width: 900px) {
+      .card-inner {
+        grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
+        gap: 40px;
+        align-items: start;
+      }
+    }
+
+    header {
+      margin-bottom: 18px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(34, 197, 94, 0.85);
+    }
+
+    h1 {
+      font-size: clamp(26px, 4vw, 32px);
+      line-height: 1.1;
+      margin: 0 0 10px;
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 520px;
+    }
+
+    .form {
+      display: grid;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .field {
+      padding: 12px 12px 10px;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+    }
+
+    .field-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
+    .field-label {
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .field-value {
+      font-size: 12px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .field-help {
+      font-size: 11px;
+      color: #6b7280;
+      margin-bottom: 6px;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      appearance: none;
+      height: 6px;
+      border-radius: 999px;
+      background: #111827;
+      outline: none;
+      margin: 2px 0 0;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.3);
+      cursor: pointer;
+      border: none;
+    }
+
+    input[type="range"]::-moz-range-thumb {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: none;
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.3);
+      cursor: pointer;
+    }
+
+    input[type="range"]::-moz-range-track {
+      height: 6px;
+      border-radius: 999px;
+      background: #111827;
+    }
+
+    .scale-hints {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: #6b7280;
+      margin-top: 3px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .pill {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+    }
+
+    .btn-row {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      border: none;
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #022c22;
+      box-shadow: 0 12px 30px rgba(34, 197, 94, 0.45);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 36px rgba(34, 197, 94, 0.55);
+      filter: brightness(1.02);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+      box-shadow: 0 8px 22px rgba(34, 197, 94, 0.45);
+      filter: brightness(0.98);
+    }
+
+    .btn-primary span.icon {
+      font-size: 16px;
+    }
+
+    .inline-note {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* Result panel */
+    .result-card {
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top right, var(--accent-soft) 0, #020617 60%);
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      padding: 18px 16px 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (min-width: 900px) {
+      .result-card {
+        padding: 20px 18px 18px;
+      }
+    }
+
+    .glow-orb {
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(34, 197, 94, 0.45), transparent 65%);
+      top: -70px;
+      right: -40px;
+      pointer-events: none;
+    }
+
+    .result-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .result-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      color: #9ca3af;
+    }
+
+    .result-pill {
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      backdrop-filter: blur(10px);
+      background: rgba(2, 6, 23, 0.6);
+      color: #e5e7eb;
+    }
+
+    .rating-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 4px;
+    }
+
+    .rating-value {
+      font-size: 42px;
+      font-weight: 700;
+      letter-spacing: -0.08em;
+    }
+
+    .rating-unit {
+      font-size: 13px;
+      color: #9ca3af;
+      margin-top: 6px;
+    }
+
+    .rating-band {
+      font-size: 11px;
+      color: #bbf7d0;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-top: 3px;
+    }
+
+    .descriptor {
+      font-size: 13px;
+      color: #e5e7eb;
+      margin-top: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .descriptor strong {
+      color: #a5f3fc;
+    }
+
+    .bullets {
+      margin-top: 12px;
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid rgba(148, 163, 184, 0.4);
+      padding-top: 9px;
+    }
+
+    .bullets-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #9ca3af;
+      margin-bottom: 5px;
+    }
+
+    .bullets ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 12px;
+      color: #d1d5db;
+      display: grid;
+      gap: 3px;
+    }
+
+    .bullets li::before {
+      content: "•";
+      margin-right: 6px;
+      color: var(--accent);
+    }
+
+    .scale-card {
+      margin-top: 14px;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px dashed rgba(148, 163, 184, 0.45);
+      padding: 10px 11px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .scale-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #9ca3af;
+      margin-bottom: 6px;
+    }
+
+    .scale-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      font-size: 11px;
+    }
+
+    .scale-chip {
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(75, 85, 99, 0.9);
+      background: rgba(15, 23, 42, 0.95);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .scale-chip span {
+      color: #e5e7eb;
+    }
+
+    .scale-chip small {
+      color: #9ca3af;
+      font-size: 10px;
+    }
+
+    /* Visual rating scale graphic (below main card) */
+    .section {
+      margin-top: 28px;
+      padding: 18px 18px 16px;
+      border-radius: 20px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+    }
+
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .section p {
+      margin: 0 0 10px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .rating-scale {
+      margin-top: 14px;
+    }
+
+    .rating-scale-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .rating-scale-bar {
+      border-radius: 999px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      border: 1px solid rgba(31, 41, 55, 0.9);
+    }
+
+    .rating-band-segment {
+      padding: 8px 6px;
+      text-align: center;
+      font-size: 11px;
+      line-height: 1.25;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    }
+
+    .rating-band-segment span {
+      display: block;
+    }
+
+    .rating-band-segment small {
+      display: block;
+      font-size: 10px;
+    }
+
+    .band-beginner {
+      background: linear-gradient(135deg, #111827, #1f2937);
+      color: #e5e7eb;
+    }
+
+    .band-developing {
+      background: linear-gradient(135deg, #1f2937, #0f766e);
+      color: #ecfeff;
+    }
+
+    .band-rec {
+      background: linear-gradient(135deg, #0f766e, #16a34a);
+      color: #ecfdf5;
+    }
+
+    .band-club {
+      background: linear-gradient(135deg, #16a34a, #15803d);
+      color: #ecfdf5;
+    }
+
+    .band-advanced {
+      background: linear-gradient(135deg, #15803d, #064e3b);
+      color: #bbf7d0;
+    }
+
+    .disclaimer {
+      font-size: 11px;
+      color: #6b7280;
+      margin-top: 10px;
+    }
+
+    footer.site-footer {
+      margin-top: 24px;
+      font-size: 11px;
+      color: #6b7280;
+      text-align: center;
+    }
+
+    footer.site-footer a {
+      color: #9ca3af;
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(148, 163, 184, 0.6);
+    }
+
+    footer.site-footer a:hover {
+      color: #e5e7eb;
+      border-bottom-style: solid;
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <!-- Top Nav -->
+    <nav class="nav">
+      <div class="nav-left">
+        <div class="nav-logo" aria-hidden="true">🥒</div>
+        <div class="nav-title">
+          <div class="nav-title-main">Pickleball Rating Calculator</div>
+          <div class="nav-title-sub">PickleballRatingCalculator.com</div>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#top">Calculator</a>
+        <a href="#rating-levels">Rating Levels</a>
+        <a href="/about.html">About</a>
+        <a href="/faq.html">FAQ</a>
+      </div>
+    </nav>
+
+    <main id="top" class="page">
+      <!-- Main Calculator Card -->
+      <section class="card">
+        <div class="card-inner">
+          <!-- Left: Inputs -->
+          <div>
+            <header>
+              <div class="eyebrow">
+                <span class="eyebrow-dot"></span>
+                <span>Pickleball Rating Estimator</span>
+              </div>
+              <h1>What’s my pickleball rating?</h1>
+              <p class="subtitle">
+                Slide each bar to match your current skill level. This tool will estimate your
+                <strong>2.0–5.0 style pickleball rating</strong> based on common recreational and club skill levels.
+              </p>
+            </header>
+
+            <form class="form" id="rating-form">
+              <!-- Serve -->
+              <div class="field">
+                <div class="field-header">
+                  <div class="field-label">Serve &amp; return consistency</div>
+                  <div class="field-value"><span id="serve-value">5</span>/10</div>
+                </div>
+                <div class="field-help">
+                  How often do you get serves and returns deep and in play?
+                </div>
+                <input type="range" id="serve" min="1" max="10" value="5" />
+                <div class="scale-hints">
+                  <span>Rarely in</span>
+                  <span>Rock solid</span>
+                </div>
+              </div>
+
+              <!-- Dinking -->
+              <div class="field">
+                <div class="field-header">
+                  <div class="field-label">Dinking &amp; soft game</div>
+                  <div class="field-value"><span id="dink-value">5</span>/10</div>
+                </div>
+                <div class="field-help">
+                  Comfort at the kitchen line, control on soft shots, ability to sustain dink rallies.
+                </div>
+                <input type="range" id="dink" min="1" max="10" value="5" />
+                <div class="scale-hints">
+                  <span>Mostly hard shots</span>
+                  <span>Calm, controlled</span>
+                </div>
+              </div>
+
+              <!-- Volleys -->
+              <div class="field">
+                <div class="field-header">
+                  <div class="field-label">Volleys &amp; hands speed</div>
+                  <div class="field-value"><span id="volley-value">5</span>/10</div>
+                </div>
+                <div class="field-help">
+                  Winning hands battles, blocking hard drives, reacting quickly at the net.
+                </div>
+                <input type="range" id="volley" min="1" max="10" value="5" />
+                <div class="scale-hints">
+                  <span>Often late</span>
+                  <span>Very quick</span>
+                </div>
+              </div>
+
+              <!-- Movement -->
+              <div class="field">
+                <div class="field-header">
+                  <div class="field-label">Movement &amp; court coverage</div>
+                  <div class="field-value"><span id="movement-value">5</span>/10</div>
+                </div>
+                <div class="field-help">
+                  Footwork, balance, and ability to get to balls wide, short, and deep.
+                </div>
+                <input type="range" id="movement" min="1" max="10" value="5" />
+                <div class="scale-hints">
+                  <span>Limited</span>
+                  <span>Excellent</span>
+                </div>
+              </div>
+
+              <!-- Strategy -->
+              <div class="field">
+                <div class="field-header">
+                  <div class="field-label">Strategy &amp; shot selection</div>
+                  <div class="field-value"><span id="strategy-value">5</span>/10</div>
+                </div>
+                <div class="field-help">
+                  Using drops, thirds, resets, and smart targets instead of just “hit it back”.
+                </div>
+                <input type="range" id="strategy" min="1" max="10" value="5" />
+                <div class="scale-hints">
+                  <span>Mostly reactive</span>
+                  <span>Very intentional</span>
+                </div>
+              </div>
+
+              <!-- Consistency -->
+              <div class="field">
+                <div class="field-header">
+                  <div class="field-label">Overall consistency</div>
+                  <div class="field-value"><span id="consistency-value">5</span>/10</div>
+                </div>
+                <div class="field-help">
+                  How often you can play at your “best level” for a full game to 11.
+                </div>
+                <input type="range" id="consistency" min="1" max="10" value="5" />
+                <div class="scale-hints">
+                  <span>Up &amp; down</span>
+                  <span>Very steady</span>
+                </div>
+              </div>
+
+              <div class="tag-row">
+                <span class="pill">Doubles &amp; rec play focused</span>
+                <span class="pill">Unofficial rating estimate</span>
+              </div>
+
+              <div class="btn-row">
+                <button type="submit" class="btn-primary">
+                  <span class="icon">🥒</span>
+                  <span>Estimate my rating</span>
+                </button>
+                <span class="inline-note">
+                  Adjust sliders and tap the button anytime to refresh your estimate.
+                </span>
+              </div>
+            </form>
+          </div>
+
+          <!-- Right: Result -->
+          <aside class="result-card" aria-live="polite">
+            <div class="glow-orb" aria-hidden="true"></div>
+
+            <div class="result-header">
+              <div class="result-title">Estimated skill level</div>
+              <div class="result-pill" id="competitive-tag">
+                Rec club level
+              </div>
+            </div>
+
+            <div class="rating-row">
+              <div class="rating-value" id="rating-display">3.5</div>
+              <div>
+                <div class="rating-unit">approximate rating</div>
+                <div class="rating-band" id="rating-band-label">Solid 3.5 player</div>
+              </div>
+            </div>
+
+            <p class="descriptor" id="rating-description">
+              You likely compete well in most rec games, can hold dinks, and are starting to use
+              <strong>third-shot drops and resets</strong> instead of only driving.
+            </p>
+
+            <div class="bullets">
+              <div class="bullets-title">Quick snapshot</div>
+              <ul id="rating-bullets">
+                <li>Comfortable in rec doubles against similar skill.</li>
+                <li>Can sustain medium-length rallies and dink exchanges.</li>
+                <li>Some awareness of strategy: court positioning, targeting feet, etc.</li>
+              </ul>
+            </div>
+
+            <div class="scale-card">
+              <div class="scale-title">How the scale roughly maps</div>
+              <div class="scale-row">
+                <div class="scale-chip">
+                  <span>2.0–2.5</span>
+                  <small>New to the game</small>
+                </div>
+                <div class="scale-chip">
+                  <span>3.0</span>
+                  <small>Developing consistency</small>
+                </div>
+                <div class="scale-chip">
+                  <span>3.5</span>
+                  <small>Strong rec level</small>
+                </div>
+                <div class="scale-chip">
+                  <span>4.0</span>
+                  <small>Competitive club</small>
+                </div>
+                <div class="scale-chip">
+                  <span>4.5+</span>
+                  <small>High level / tourneys</small>
+                </div>
+              </div>
+            </div>
+
+            <footer>
+              This is an <strong>unofficial estimator</strong>. For an official or verified rating, check
+              with leagues, clubs, or rating providers.
+            </footer>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Visual Rating Scale + SEO section -->
+      <section id="rating-levels" class="section">
+        <h2>Pickleball rating levels explained (2.0–5.0)</h2>
+        <p>
+          Most pickleball players use a scale from <strong>2.0 to 5.0+</strong> to describe skill level. This
+          pickleball rating calculator gives you a quick estimate based on how you actually play: serve, dinks,
+          volleys, movement, strategy, and consistency.
+        </p>
+
+        <div class="rating-scale" aria-label="Visual pickleball rating scale from 2.0 to 5.0">
+          <div class="rating-scale-labels">
+            <span>New player</span>
+            <span>Recreational</span>
+            <span>Competitive</span>
+          </div>
+          <div class="rating-scale-bar">
+            <div class="rating-band-segment band-beginner">
+              <span>2.0–2.5</span>
+              <small>Beginner</small>
+            </div>
+            <div class="rating-band-segment band-developing">
+              <span>2.5–3.0</span>
+              <small>Developing</small>
+            </div>
+            <div class="rating-band-segment band-rec">
+              <span>3.0–3.5</span>
+              <small>Strong rec</small>
+            </div>
+            <div class="rating-band-segment band-club">
+              <span>3.5–4.0</span>
+              <small>Club level</small>
+            </div>
+            <div class="rating-band-segment band-advanced">
+              <span>4.0–5.0+</span>
+              <small>Advanced</small>
+            </div>
+          </div>
+        </div>
+
+        <p>
+          As a rough guide:
+        </p>
+        <ul style="margin: 6px 0 0 16px; font-size: 13px; color: var(--muted);">
+          <li><strong>2.0–2.5</strong>: Just learning rules, scoring, and basic shots.</li>
+          <li><strong>3.0</strong>: Can rally, understands where to stand, and plays regular rec games.</li>
+          <li><strong>3.5</strong>: Strong recreational player with some soft game and strategy.</li>
+          <li><strong>4.0</strong>: Competitive club player, mixing drives, drops, resets, and dinks.</li>
+          <li><strong>4.5+</strong>: High-level or tournament-level player with very strong consistency.</li>
+        </ul>
+
+        <p class="disclaimer">
+          This tool is designed for <strong>self-assessment only</strong>. Your official rating may differ based on
+          league rules, tournament results, or verified rating systems.
+        </p>
+      </section>
+
+      <footer class="site-footer">
+        &copy; <span id="year"></span> PickleballRatingCalculator.com &middot;
+        <a href="/about.html">About</a> &middot;
+        <a href="/faq.html">FAQ</a>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // Year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Helper to connect slider to label
+    function bindSlider(idBase) {
+      const slider = document.getElementById(idBase);
+      const label = document.getElementById(idBase + "-value");
+      if (!slider || !label) return;
+      label.textContent = slider.value;
+      slider.addEventListener("input", () => {
+        label.textContent = slider.value;
+        calculateRating(); // Live update as sliders move
+      });
+    }
+
+    ["serve", "dink", "volley", "movement", "strategy", "consistency"].forEach(bindSlider);
+
+    const ratingDisplay = document.getElementById("rating-display");
+    const ratingBandLabel = document.getElementById("rating-band-label");
+    const ratingDescription = document.getElementById("rating-description");
+    const ratingBullets = document.getElementById("rating-bullets");
+    const competitiveTag = document.getElementById("competitive-tag");
+
+    function calculateRating() {
+      const serve = Number(document.getElementById("serve").value || 0);
+      const dink = Number(document.getElementById("dink").value || 0);
+      const volley = Number(document.getElementById("volley").value || 0);
+      const movement = Number(document.getElementById("movement").value || 0);
+      const strategy = Number(document.getElementById("strategy").value || 0);
+      const consistency = Number(document.getElementById("consistency").value || 0);
+
+      const scores = [serve, dink, volley, movement, strategy, consistency];
+      const avg = scores.reduce((sum, v) => sum + v, 0) / scores.length || 0;
+
+      // Map avg 1–10 roughly to 2.0–5.0 scale
+      let rating = 1.5 + avg * 0.35; // 1 -> ~1.85, 10 -> ~5.0
+      rating = Math.max(2.0, Math.min(5.0, rating));
+
+      // Round to nearest 0.5
+      const rounded = Math.round(rating * 2) / 2;
+      ratingDisplay.textContent = rounded.toFixed(1);
+
+      let label = "";
+      let description = "";
+      let bullets = [];
+      let tag = "";
+
+      if (rounded < 2.5) {
+        label = "Learning the basics";
+        tag = "New to the game";
+        description =
+          "You’re still getting comfortable with rules, scoring, and just keeping the ball in play. Focus on clean contact and simple, repeatable shots.";
+        bullets = [
+          "Learning where to stand and when to move forward.",
+          "Short rallies with some missed serves and returns.",
+          "Great stage to focus on fun and fundamentals."
+        ];
+      } else if (rounded < 3.0) {
+        label = "Developing consistency";
+        tag = "Early rec level";
+        description =
+          "You can rally a bit longer and are getting more serves and returns in. Footwork and shot selection are still developing.";
+        bullets = [
+          "Starting to control direction and height of shots.",
+          "Occasionally getting to the kitchen and dinking.",
+          "Unforced errors still end a lot of points."
+        ];
+      } else if (rounded < 3.5) {
+        label = "Developing rec player";
+        tag = "Rec court regular";
+        description =
+          "You can hold rallies, understand positioning, and get into some dink exchanges, though consistency can still swing up and down.";
+        bullets = [
+          "Knows to move toward the NVZ line after serving and returning.",
+          "Can keep medium-speed shots in play with decent placement.",
+          "Starting to experiment with drops and lobs."
+        ];
+      } else if (rounded < 4.0) {
+        label = "Solid 3.5 player";
+        tag = "Strong rec level";
+        description =
+          "You can compete well in most rec games, use both power and soft game, and have a growing understanding of resets, drops, and targeting weaknesses.";
+        bullets = [
+          "Comfortable dinking and waiting for attackable balls.",
+          "Can execute third-shot drops or drives with a plan.",
+          "Understands stacking or basic doubles strategy."
+        ];
+      } else if (rounded < 4.5) {
+        label = "Competitive club player";
+        tag = "High rec / club";
+        description =
+          "You play with intention: mixing drives, drops, resets, and counterattacks. Errors still happen under pressure, but you understand high-percentage strategy.";
+        bullets = [
+          "Uses spin, depth, and angles to force errors.",
+          "Can sustain fast hands battles and win some of them.",
+          "Reads opponents’ tendencies and adjusts tactics."
+        ];
+      } else {
+        label = "High-level competitor";
+        tag = "Tournament ready";
+        description =
+          "You have strong mechanics, consistent soft game, and excellent court awareness. You can pressure weaker opponents and hold your own against strong competition.";
+        bullets = [
+          "Rarely gives up free points through bad decisions.",
+          "High-level dinking, resets, and counterattacks.",
+          "Understands advanced positioning, stacking, and partner roles."
+        ];
+      }
+
+      ratingBandLabel.textContent = label;
+      ratingDescription.textContent = description;
+      competitiveTag.textContent = tag;
+
+      ratingBullets.innerHTML = "";
+      bullets.forEach((b) => {
+        const li = document.createElement("li");
+        li.textContent = b;
+        ratingBullets.appendChild(li);
+      });
+    }
+
+    document
+      .getElementById("rating-form")
+      .addEventListener("submit", function (e) {
+        e.preventDefault();
+        calculateRating();
+      });
+
+    // Initial calculation on load
+    calculateRating();
+  </script>
+</body>
+</html>
+
   <meta property="og:title" content="Pickleball Rating Calculator" />
   <meta property="og:description" content="Estimate your pickleball rating (2.0–5.0) in seconds using this free skill-based calculator." />
   <meta property="og:type" content="website" />
